@@ -39,7 +39,7 @@ const NavMenu = () => {
       </div>
 
       {/* cart icon */}
-      <div className="fixed bottom-2 left-4 lg:static cursor-pointer lg:mr-5">
+      <div className="fixed bottom-2 left-4 lg:static cursor-pointer lg:mr-5 active-btn-anim">
         <div className="p-4 bg-white shadow-md rounded-full">
           <TbShoppingBag size={22} />
         </div>
