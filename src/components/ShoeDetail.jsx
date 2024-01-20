@@ -6,7 +6,7 @@ const ShoeDetail = () => {
   return (
     <div className="flex flex-col lg:flex-row-reverse space-y-4">
       {/* shoe image */}
-      <div className=" flex-1 lg:-mt-32 ml-28">
+      <div className=" flex-1 lg:-mt-32 lg:ml-28">
         <div className=" h-full flex-center bg-gradient-to-br from-[#F637CF] from-5% via-[#E3D876] via-40% to-[#4DD4C6]">
           <img className="animate-float" src={shoe1} />
         </div>
@@ -19,7 +19,7 @@ const ShoeDetail = () => {
           with its vibrant color gradient.
         </div>
 
-        <div className="flex space-x-6">
+        <div className="flex space-x-6 items-center">
           <div className="font-extrabold text-3xl md:text-6xl">160 $</div>
           <Select title={"QTY"} options={QTY} />
           <Select title={"SIZE"} options={SIZE} />
