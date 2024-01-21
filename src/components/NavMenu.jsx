@@ -17,14 +17,14 @@ const NavMenu = ({ openSidebar }) => {
       {/* Hamburger Menu */}
       <button
         onClick={() => setIsMobileMenuShown(!isMobileMenuShown)}
-        className="cursor-pointer rounded p-2 hover:bg-gray-100 focus:ring-gray-300 focus:ring-1 focus:bg-gray-100 lg:hidden"
+        className="dark:text-white dark:hover:bg-night-50 cursor-pointer rounded p-2 hover:bg-gray-100 focus:ring-gray-300 focus:ring-1 lg:hidden"
       >
         <RxHamburgerMenu size={25} />
       </button>
 
       {/* Nav Menu List */}
       <div
-        className={`dark:text-white w-full text-lg bg-gray-100 rounded-lg lg:w-auto lg:bg-transparent ${!isMobileMenuShown && "hidden"} lg:block`}
+        className={`dark:lg:text-white w-full text-lg bg-gray-100 rounded-lg lg:w-auto lg:bg-transparent ${!isMobileMenuShown && "hidden"} lg:block`}
       >
         <ul className="flex flex-col lg:flex-row lg:space-x-4 p-4">
           {MENUS.map((menu, i) => (
