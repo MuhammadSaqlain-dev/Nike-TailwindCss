@@ -36,7 +36,7 @@ function App() {
   });
 
   return (
-    <div className="animate-fadeIn p-10 xl:px-24">
+    <div className="animate-fadeIn p-10 xl:px-24 dark:bg-night">
       <NavMenu openSidebar={() => setIsSidebarOpen(true)} />
       <ShoeDetail />
       <NewArrivalsSection shoes={SHOE_LIST} />

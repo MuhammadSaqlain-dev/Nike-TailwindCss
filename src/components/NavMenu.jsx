@@ -11,7 +11,7 @@ const NavMenu = ({ openSidebar }) => {
     <nav className="flex flex-wrap items-center justify-between z-10 relative">
       {/* Nike logo */}
       <a href="#">
-        <NikeLogo className="h-20 w-20" />
+        <NikeLogo className="h-20 w-20 dark:fill-white" />
       </a>
 
       {/* Hamburger Menu */}
@@ -24,7 +24,7 @@ const NavMenu = ({ openSidebar }) => {
 
       {/* Nav Menu List */}
       <div
-        className={`w-full text-lg bg-gray-100 rounded-lg lg:w-auto lg:bg-transparent ${!isMobileMenuShown && "hidden"} lg:block`}
+        className={`dark:text-white w-full text-lg bg-gray-100 rounded-lg lg:w-auto lg:bg-transparent ${!isMobileMenuShown && "hidden"} lg:block`}
       >
         <ul className="flex flex-col lg:flex-row lg:space-x-4 p-4">
           {MENUS.map((menu, i) => (

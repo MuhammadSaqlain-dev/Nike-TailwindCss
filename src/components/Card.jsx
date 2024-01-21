@@ -5,7 +5,7 @@ const Card = ({ shoe }) => {
     >
       <div className="p-8">
         <div className="text-2xl font-bold">{shoe.title}</div>
-        <div className="mt-8 text-xl font-semibold underline underline-offset-4">
+        <div className="mt-8  font-semibold underline underline-offset-4">
           <a href="#">SHOP NOW +</a>
         </div>
       </div>

@@ -7,7 +7,7 @@ const Select = ({ title, options, className, defaultValue }) => {
       <select
         defaultValue={defaultValue || ""}
         className={twMerge(
-          `border border-gray-300 w-24 p-4 bg-white appearance-none ${className}`
+          `border border-gray-300 w-24 p-4 bg-white appearance-none dark:text-black ${className}`
         )}
       >
         <option value="" disabled hidden>
@@ -19,7 +19,7 @@ const Select = ({ title, options, className, defaultValue }) => {
           </option>
         ))}
       </select>
-      <div className="absolute inset-y-0 right-0 flex-center pr-3">
+      <div className="absolute inset-y-0 right-0 flex-center pr-3 dark:text-black">
         <IoIosArrowDown />
       </div>
     </div>
