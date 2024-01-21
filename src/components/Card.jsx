@@ -1,6 +1,7 @@
-const Card = ({ shoe }) => {
+const Card = ({ shoe, handleClick }) => {
   return (
     <div
+      onClick={() => handleClick(shoe)}
       className={`${shoe.className} max-w-xl cursor-pointer transform transition hover:scale-105`}
     >
       <div className="p-8">

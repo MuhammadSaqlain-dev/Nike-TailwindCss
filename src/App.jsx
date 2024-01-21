@@ -10,6 +10,8 @@ import { useEffect } from "react";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [currentShoe, setCurrentShoe] = useState(SHOE_LIST[0]);
+  const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
     const darkMode = localStorage.getItem("darkMode");
@@ -19,6 +21,39 @@ function App() {
       : "";
   }, []);
 
+  const removeFromCart = (productId) => {
+    const updatedCartItems = [...cartItems];
+
+    const findIndex = cartItems.findIndex(
+      (shoe) => shoe.product.id === productId
+    );
+
+    if (findIndex > -1) {
+      updatedCartItems.splice(findIndex, 1);
+    }
+
+    setCartItems(updatedCartItems);
+  };
+
+  const handleAddToCart = (product, qty, size) => {
+    const updatedCartItems = [...cartItems];
+
+    if (qty && size) {
+      const findIndex = cartItems.findIndex(
+        (shoe) => shoe.product.id === product.id
+      );
+
+      if (findIndex > -1) {
+        updatedCartItems[findIndex].qty = qty;
+        updatedCartItems[findIndex].size = size;
+      } else {
+        updatedCartItems.push({ product, qty, size });
+      }
+
+      setCartItems(updatedCartItems);
+    }
+  };
+
   const handleDarkMode = () => {
     window.document.documentElement.classList.toggle("dark");
     localStorage.setItem(
@@ -27,24 +62,16 @@ function App() {
     );
   };
 
-  const FAKE_SHOES = SHOE_LIST.map((shoe) => {
-    return {
-      product: shoe,
-      qty: 1,
-      size: 44,
-    };
-  });
-
   return (
     <div className="animate-fadeIn p-10 xl:px-24 dark:bg-night">
       <NavMenu openSidebar={() => setIsSidebarOpen(true)} />
-      <ShoeDetail />
-      <NewArrivalsSection shoes={SHOE_LIST} />
+      <ShoeDetail shoe={currentShoe} addToCart={handleAddToCart} />
+      <NewArrivalsSection shoes={SHOE_LIST} handleClick={setCurrentShoe} />
       <Sidebar
         isSidebarOpen={isSidebarOpen}
         closeSidebar={() => setIsSidebarOpen(false)}
       >
-        <Cart FAKE_SHOES={FAKE_SHOES} />
+        <Cart items={cartItems} itemToRemove={removeFromCart} />
       </Sidebar>
 
       {/* turn-on dark mode */}
